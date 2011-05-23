@@ -103,6 +103,7 @@ setup s cabal flgs = do
                       args <- extraArgs v cfgOut (getVersion s)
                       return $ Right args
 
+getExtraFields :: Maybe String -> IO (Either String [Field])
 getExtraFields (Just extraIn) = 
       withUTF8FileContents extraIn $ \cIn ->
        case readFields cIn of
